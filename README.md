@@ -93,7 +93,3 @@ This project focuses on **small-scale parking environments** and demonstrates ho
 ## 👨‍💻 Author
 
 Aditya Patil
-
-
-
-## 📂 Project Structure
