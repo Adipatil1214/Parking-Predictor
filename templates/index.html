@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Smart Parking System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>🚗 AI Smart Parking Predictor</h2>
+
+<form action="/predict" method="post">
+
+Hour (0-23):  
+<input type="number" name="hour" required><br>
+
+Day of Week (0=Mon,6=Sun):  
+<input type="number" name="day" required><br>
+
+Weekend (0 or 1):  
+<input type="number" name="weekend" required><br>
+
+Parking Duration (hours):  
+<input type="number" name="duration" required><br><br>
+
+<button type="submit">Predict</button>
+
+</form>
+
+{% if prediction %}
+
+<div class="result">
+
+<h3>Available Parking Spots: {{prediction}}</h3>
+<h3>Status: {{status}}</h3>
+
+<progress value="{{prediction}}" max="50"></progress>
+
+</div>
+{% else %}
+  <p>Click Predict to check parking availability</p>
+{% endif %}
+
+<h3>Parking Demand Analysis</h3>
+
+<img src="/static/hourly_demand.png" width="450">
+
+</div>
+
+
+
+
+</body>
+</html>
